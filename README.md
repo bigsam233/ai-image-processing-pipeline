@@ -189,6 +189,9 @@ TOPIC_ARN = "your-actual-arn"
 
 ---
 
+# ✅ Working Application
+
+
 # ⚠️ Challenges & Solutions
 ❌ **nvalidImageFormatException**  
 **Issue:** Rekognition rejected uploaded files (WEBP) 

@@ -2,20 +2,26 @@
 
 # 📌 Overview
 
-This project implements a **serverless, event-driven image processing pipeline** on AWS.
+This project implements a **fully serverless, event-driven image processing pipeline** on AWS.
 
-When an image is uploaded to an S3 bucket, it automatically triggers a Lambda function that:
-- Validates the file
-- Uses Amazon Rekognition to detect labels (AI)
-- Copies the processed image to an output bucket
-- Sends a notification email via SNS with detected labels
+When an image is uploaded to Amazon S3, the system automatically:
+- Triggers a Lambda function
+- Analyzes the image using AI (Amazon Rekognition)
+- Stores the processed output
+- Sends a notification email with detected labels
 
-This solution demonstrates **real-world cloud architecture principles**, including:
-- Event-driven design
-- Serverless computing
-- AI service integration
-- IAM-based security
-- Observability with CloudWatch
+This project demonstrates **real-world cloud engineering practices**, including automation, service integration, and debugging in distributed systems.
+
+---
+
+## 🧠 What This Project Demonstrates
+
+- Event-driven architecture using S3 triggers  
+- Serverless compute with AWS Lambda  
+- AI integration using Amazon Rekognition  
+- Secure service interaction via IAM roles  
+- Real-time notifications with SNS  
+- Debugging using CloudWatch logs  
 
 ---
 

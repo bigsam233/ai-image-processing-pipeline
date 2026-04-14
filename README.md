@@ -21,6 +21,9 @@ This solution demonstrates **real-world cloud architecture principles**, includi
 
 ## 🏗️ Architecture
 
+<img width="1536" height="1024" alt=" architecture diagram" src="https://github.com/user-attachments/assets/331a767e-9139-4439-9507-2ca4954a8a1f" />
+
+
 ### 🔄 Request Flow
 
 1. User uploads image to **S3 input bucket (`my-raw-images-in`)**
@@ -32,8 +35,6 @@ This solution demonstrates **real-world cloud architecture principles**, includi
 4. Lambda copies image to **output bucket (`my-thumbnails-out`)**
 5. Lambda publishes message to **SNS topic**
 6. SNS sends email notification to subscriber
-
----
 
 ### 🧩 Key Components
 
@@ -49,9 +50,7 @@ This solution demonstrates **real-world cloud architecture principles**, includi
 
 ---
 
-## ⚙️<img width="1536" height="1024" alt=" architecture diagram" src="https://github.com/user-attachments/assets/6b3178a3-4d6b-4283-988d-a6fda4cb9dcc" />
-<img width="1536" height="1024" alt=" architecture diagram" src="https://github.com/user-attachments/assets/72b0e137-09cc-471c-a382-e1202cb69c68" />
- Step-by-Step Implementation
+## ⚙️ Step-by-Step Implementation
 
 > ⚠️ This section reflects the **actual manual implementation via AWS Console** to build a foundational understanding.
 
@@ -144,3 +143,55 @@ def lambda_handler(event, context):
     )
 
     return "Job Done!"
+```
+### 🔹 Step 5: Configure S3 Trigger
+
+1. Open my-raw-images-in
+2. Go to Properties → Event Notifications
+3. Create event:  
+	•	Event type: All object create events
+	•	Destination: Lambda function  
+
+--- 
+
+### 🔹 Step 6: Create SNS Topic
+
+1. Go to SNS → Create Topic
+2. Select Standard
+3. Name: ImageSuccess
+
+---
+
+### 🔹 Step 7: Create Subscription
+
+1. Add subscription:
+	•	Protocol: Email
+	•	Endpoint: Your email
+2. Confirm subscription via email
+
+---
+
+### 🔹 Step 8: Connect SNS to Lambda
+	•	Copy SNS Topic ARN
+	•	Replace in Lambda:
+```
+TOPIC_ARN = 'your-actual-arn'
+```  
+
+---
+
+### 🔹 Step 9: Test the Pipeline
+
+1. Upload image to the input bucket
+2. Verify: 
+	•	Lambda runs (CloudWatch logs)
+	•	Image appears in output bucket  
+   •	Email notification is received
+
+
+---
+
+
+
+
+

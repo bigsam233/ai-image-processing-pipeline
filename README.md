@@ -1,6 +1,6 @@
 # Serverless Image Processing Pipeline (AWS + AI)
 
-## 📌 Overview
+# 📌 Overview
 
 This project implements a **serverless, event-driven image processing pipeline** on AWS.
 
@@ -19,7 +19,7 @@ This solution demonstrates **real-world cloud architecture principles**, includi
 
 ---
 
-## 🏗️ Architecture
+# 🏗️ Architecture
 
 <img width="1536" height="1024" alt=" architecture diagram" src="https://github.com/user-attachments/assets/331a767e-9139-4439-9507-2ca4954a8a1f" />
 
@@ -50,11 +50,7 @@ This solution demonstrates **real-world cloud architecture principles**, includi
 
 ---
 
-## ⚙️ Step-by-Step Implementation
-
-> ⚠️ This section reflects the **actual manual implementation via AWS Console** to build a foundational understanding.
-
----
+# ⚙️ Step-by-Step Implementation
 
 ### 🔹 Step 1: Create S3 Buckets
 
@@ -172,25 +168,49 @@ def lambda_handler(event, context):
 ---
 
 ### 🔹 Step 8: Connect SNS to Lambda
-	•	Copy SNS Topic ARN
-	•	Replace in Lambda:
+
+- Copy the SNS Topic ARN  
+- Replace it in your Lambda code:
+
+```python
+TOPIC_ARN = "your-actual-arn"
 ```
-TOPIC_ARN = 'your-actual-arn'
-```  
 
 ---
 
 ### 🔹 Step 9: Test the Pipeline
 
-1. Upload image to the input bucket
+1. Upload image to the input bucket  
 2. Verify: 
 	•	Lambda runs (CloudWatch logs)
 	•	Image appears in output bucket  
-   •	Email notification is received
+    •	Email notification is received
 
 
 ---
 
+# ⚠️ Challenges & Solutions
+❌ **nvalidImageFormatException**  
+**Issue:** Rekognition rejected uploaded files (WEBP) 
+**Solution:** Restricted uploads to .jpg, .png
+
+
+❌ **SNS Notifications Not Sending**  
+**Issue:** No email received due to missing IAM permission (sns:Publish)  
+**Solution:** Attached the AmazonSNSFullAccess policy to the Lambda role  
+
+
+## 📬 Contact  
+If you’re a recruiter or hiring manager looking for a Cloud/DevOps Engineer, feel free to connect via email at samuel.tfio@gmail.com
+
+## 🔗 Links
+
+[![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/samuel-tettey-fio/)
+
+
+## Authors
+
+- [@bigsam233](https://www.github.com/bigsam233)
 
 
 

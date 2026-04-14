@@ -66,6 +66,11 @@ Create two buckets:
 **Why two buckets?**
 Using one bucket would create an **infinite loop** (output triggers input again).
 
+<img width="1362" height="661" alt="Image uploaded to input bucket" src="https://github.com/user-attachments/assets/c391ef4f-4959-4cb7-826d-5a76a880065d" />  
+
+  
+<img width="1362" height="661" alt="Image uploaded to output bucket" src="https://github.com/user-attachments/assets/746b7c43-b88b-4320-978c-13533506c7fe" />
+
 ---
 
 ### 🔹 Step 2: Create IAM Role for Lambda
@@ -85,6 +90,9 @@ Without permissions:
 - Cannot call Rekognition
 - Cannot send SNS notifications
 
+
+<img width="1652" height="939" alt="IAM Role for Lambda" src="https://github.com/user-attachments/assets/fb408c39-91d6-4741-9f86-05391d162369" />
+
 ---
 
 ### 🔹 Step 3: Create Lambda Function
@@ -92,6 +100,9 @@ Without permissions:
 1. Go to Lambda → Create Function
 2. Runtime: **Python 3.x**
 3. Attach the IAM role created above
+
+
+<img width="1652" height="998" alt="Creating Lambda Function" src="https://github.com/user-attachments/assets/1a982c82-6d28-4606-b79f-0cad96fe561d" />
 
 ---
 
@@ -139,7 +150,11 @@ def lambda_handler(event, context):
     )
 
     return "Job Done!"
-```
+```  
+
+<img width="1652" height="998" alt="code for Lambda function" src="https://github.com/user-attachments/assets/381250d5-8716-4aba-8139-ec10d9ea05f9" />
+
+
 ### 🔹 Step 5: Configure S3 Trigger
 
 1. Open my-raw-images-in
@@ -147,6 +162,10 @@ def lambda_handler(event, context):
 3. Create event:  
 	•	Event type: All object create events
 	•	Destination: Lambda function  
+
+
+<img width="1652" height="908" alt="Configuring s3 event notification" src="https://github.com/user-attachments/assets/9b35be52-f615-4b5d-aba7-ee5fdd56895d" />
+
 
 --- 
 
@@ -156,6 +175,10 @@ def lambda_handler(event, context):
 2. Select Standard
 3. Name: ImageSuccess
 
+
+<img width="1362" height="661" alt="SNS topic created" src="https://github.com/user-attachments/assets/e973bbf0-9b7c-4432-b2cd-1f83789c11d2" />
+
+
 ---
 
 ### 🔹 Step 7: Create Subscription
@@ -164,6 +187,10 @@ def lambda_handler(event, context):
 	•	Protocol: Email
 	•	Endpoint: Your email
 2. Confirm subscription via email
+
+
+<img width="1652" height="998" alt="Creating SNS Subscription" src="https://github.com/user-attachments/assets/338113d2-843a-4881-8474-7a8bbb4116a9" />
+
 
 ---
 
@@ -187,9 +214,16 @@ TOPIC_ARN = "your-actual-arn"
     •	Email notification is received
 
 
+<img width="1362" height="661" alt="Image uploaded to input bucket" src="https://github.com/user-attachments/assets/29b985a0-a976-4cdc-a9ae-556ae2449017" />
+
+
+<img width="1362" height="661" alt="Image uploaded to output bucket" src="https://github.com/user-attachments/assets/e8703afe-c9af-44f9-8f25-ff8154abbe4b" />
+
 ---
 
 # ✅ Working Application
+
+<img width="1284" height="967" alt="AI description of image" src="https://github.com/user-attachments/assets/4f12b8c4-b7a1-4e6b-9784-e950e70a6b3c" />
 
 
 # ⚠️ Challenges & Solutions

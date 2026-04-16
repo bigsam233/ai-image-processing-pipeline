@@ -75,9 +75,6 @@ Using one bucket would create an **infinite loop** (output triggers input again)
 ##### *Image uploaded to input bucket*
 <img width="1362" height="661" alt="Image uploaded to input bucket" src="https://github.com/user-attachments/assets/c391ef4f-4959-4cb7-826d-5a76a880065d" />  
 
-##### *Image uploaded to output bucket*
-<img width="1362" height="661" alt="Image uploaded to output bucket" src="https://github.com/user-attachments/assets/746b7c43-b88b-4320-978c-13533506c7fe" />
-
 ---
 
 ### 🔹 Step 2: Create IAM Role for Lambda
@@ -198,6 +195,8 @@ def lambda_handler(event, context):
 ##### *Creating SNS Subscription*
 <img width="1652" height="998" alt="Creating SNS Subscription" src="https://github.com/user-attachments/assets/338113d2-843a-4881-8474-7a8bbb4116a9" />
 
+##### *Email for Subscription confirmation*
+<img width="1133" height="601" alt="Email for Subscription confirmation" src="https://github.com/user-attachments/assets/b483f686-c9fa-4925-b0e9-a3eda41c71c9" />
 
 ---
 
